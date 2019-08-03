@@ -1,20 +1,41 @@
-import setuptools
+import os
+import codecs
+import re
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+from setuptools import setup, find_packages
 
-setuptools.setup(
+here = os.path.abspath(os.path.dirname(__file__))
+
+def read(*parts):
+    with codecs.open(os.path.join(here, *parts), "r") as f:
+        return f.read()
+
+def find_version(*file_paths):
+    version_file = read(*file_paths)
+    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", version_file, re.M)
+    if version_match:
+        return version_match.group(1)
+    raise RuntimeError("Unable to find version string.")
+
+setup(
     name="dunit",
-    version="0.0.1",
+    version=find_version("dunit", "__init__.py"),
+    description="Decimal based unit conversion",
+    long_description=read("README.md"),
+    long_description_content_type="text/markdown",
+    keywords="physical quantities unit conversion science decimal",
     author="Natalie Fearnley",
     author_email="nfearnley@gmail.com",
-    description="Decimal based unit conversion",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
     url="https://github.com/nfearnley/dunit",
-    packages=setuptools.find_packages(),
+    packages=find_packages(),
+    include_package_data=True,
+    python_requires=">=3",
     classifiers=[
+        "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
-        "Operating System :: OS Independent"
+        "LICENSE :: OSI APPROVED :: MIT LICENSE",
+        "Operating System :: OS Independent",
+        "Topic :: Scientific/Engineering",
+        "Topic :: Software Development :: Libraries"
     ]
 )
