@@ -37,6 +37,9 @@ class Quantity:
 
         if new_unit is self.unit:
             return self
+
+        if new_unit.dimension != self.unit.dimension:
+            raise "Cannot convert between units of different dimensions"
         new_value = self.value * (new_unit.scale / self.unit.scale)
         return Quantity(registry=self.registry, value=new_value, unit=new_unit)
 
