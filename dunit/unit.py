@@ -13,7 +13,7 @@ class Unit:
         self._symbol = symbol
         self._dimension = dimension
         self._scale = Decimal(scale)
-        self._aliases = aliases
+        self._aliases = tuple(aliases)
 
     @classmethod
     def from_dict(cls, u: dict) -> Unit:
@@ -43,7 +43,7 @@ class Unit:
 
     @property
     def aliases(self) -> Iterable:
-        return self._aliases.copy()
+        return self._aliases
 
     def __repr__(self) -> str:
         params = ", ".join((
@@ -54,3 +54,10 @@ class Unit:
             f"aliases={self.aliases!r}"
         ))
         return f"Unit({params})"
+
+    # comparison operators
+    def __hash__(self):
+        return hash((self._name, self._symbol, self._dimension, self._scale, self._aliases))
+
+    def __eq__(self, other):
+        return (self._name, self._symbol, self._dimension, self._scale, self._aliases) == (other._name, other._symbol, other._dimension, other._scale, other._aliases)

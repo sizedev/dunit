@@ -25,7 +25,7 @@ class UnitRegistry():
     # add a unit to the unit registry
     def register(self, *args, **kwargs) -> Unit:
         unit = Unit(*args, **kwargs)
-        all_names = [unit.name, unit.symbol] + unit.aliases
+        all_names = [unit, unit.name, unit.symbol] + unit.aliases
         for name in all_names:
             self._units[name] = unit
         return unit
