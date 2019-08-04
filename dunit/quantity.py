@@ -2,8 +2,41 @@ from __future__ import annotations
 from typing import Any
 from decimal import Decimal
 import numbers
+import math
 
 from dunit.unit import Unit
+
+
+def zero_to_quantity(fn):
+    def wrapper(self, other):
+        if isinstance(other, numbers.Number) and other == 0:
+            other = Quantity(registry=self.registry, value=0, unit=self.unit)
+        return fn(self, other)
+    return wrapper
+
+
+def require_quantity(fn):
+    def wrapper(self, other):
+        if not isinstance(other, Quantity):
+            raise TypeError("Quantity required")
+        return fn(self, other)
+    return wrapper
+
+
+def require_same_dimensions(fn):
+    def wrapper(self, other):
+        if self.unit.dimension != other.unit.dimension:
+            raise TypeError("Incompatible dimenions")
+        return fn(self, other)
+    return wrapper
+
+
+def require_dimensionless(fn):
+    def wrapper(self, other):
+        if not isinstance(other, numbers.Number):
+            raise TypeError("Number required")
+        return fn(self, other)
+    return wrapper
 
 
 class Quantity:
@@ -58,15 +91,8 @@ class Quantity:
         raise NotImplementedError
 
     # Math methods
-    def __lt__(self, other):
-        raise NotImplementedError
-
-    def __le__(self, other):
-        raise NotImplementedError
-
+    @zero_to_quantity
     def __eq__(self, other):
-        if self.value == 0 and isinstance(other, numbers.Number) and other == 0:
-            return True
         if not isinstance(other, Quantity):
             return False
         if self.unit.dimension != other.unit.dimension:
@@ -76,103 +102,151 @@ class Quantity:
             return False
         return True
 
-    def __ne__(self, other):
-        raise NotImplementedError
+    @zero_to_quantity
+    @require_quantity
+    @require_same_dimensions
+    def __lt__(self, other):
+        left_value = self.value
+        right_value = other.to_unit(self.unit).value
+        raise left_value < right_value
 
+    @zero_to_quantity
+    @require_quantity
+    @require_same_dimensions
+    def __le__(self, other):
+        left_value = self.value
+        right_value = other.to_unit(self.unit).value
+        raise left_value <= right_value
+
+    @zero_to_quantity
+    @require_quantity
+    @require_same_dimensions
     def __gt__(self, other):
-        raise NotImplementedError
+        left_value = self.value
+        right_value = other.to_unit(self.unit).value
+        raise left_value > right_value
 
+    @zero_to_quantity
+    @require_quantity
+    @require_same_dimensions
     def __ge__(self, other):
-        raise NotImplementedError
+        left_value = self.value
+        right_value = other.to_unit(self.unit).value
+        raise left_value >= right_value
 
     def __hash__(self):
         raise NotImplementedError
 
+    @zero_to_quantity
+    @require_quantity
+    @require_same_dimensions
     def __add__(self, other: Quantity):
-        if isinstance(other, numbers.Number) and other == 0:
-            return self
-        if not isinstance(other, Quantity):
-            raise "Cannot add Quantity with non-Quantity"
-        if self.unit.dimension != other.unit.dimension:
-            raise "Cannot add Quantities with different dimenions"
         new_value = self.value + other.to_unit(self.unit).value
         return Quantity(self.registry, new_value, self.unit)
 
     def __radd__(self, other: Quantity):
         return self.__add__(other)
 
+    @zero_to_quantity
+    @require_quantity
+    @require_same_dimensions
     def __sub__(self, other: Quantity):
-        raise NotImplementedError
+        new_value = self.value - other.to_unit(self.unit).value
+        return Quantity(self.registry, new_value, self.unit)
 
+    @zero_to_quantity
+    @require_quantity
+    @require_same_dimensions
     def __rsub__(self, other: Quantity):
-        raise NotImplementedError
+        new_value = other.to_unit(self.unit).value - self.value
+        return Quantity(self.registry, new_value, self.unit)
 
+    @require_dimensionless
     def __mul__(self, other: Quantity):
-        raise NotImplementedError
+        new_value = self.value * other
+        return Quantity(self.registry, new_value, self.unit)
 
     def __rmul__(self, other: Quantity):
-        raise NotImplementedError
+        return __mul__(self, other)
 
+    @require_dimensionless
     def __truediv__(self, other: Quantity):
-        raise NotImplementedError
+        new_value = self.value / other
+        return Quantity(self.registry, new_value, self.unit)
 
     def __rtruediv__(self, other: Quantity):
-        raise NotImplementedError
+        raise TypeError("Cannot divide by Quantity")
 
+    @require_dimensionless
     def __floordiv__(self, other: Quantity):
-        raise NotImplementedError
+        new_value = self.value // other
+        return Quantity(self.registry, new_value, self.unit)
 
     def __rfloordiv__(self, other: Quantity):
-        raise NotImplementedError
+        raise TypeError("Cannot divide by Quantity")
 
+    @require_dimensionless
     def __mod__(self, other: Quantity):
-        raise NotImplementedError
+        new_value = self.value % other
+        return Quantity(self.registry, new_value, self.unit)
 
     def __rmod__(self, other: Quantity):
-        raise NotImplementedError
+        raise TypeError("Cannot divide by Quantity")
 
+    @require_dimensionless
     def __divmod__(self, other: Quantity):
-        raise NotImplementedError
+        new_quotient_value = self.value // other
+        new_remainder_value = self.value % other
+        return (
+            Quantity(self.registry, new_quotient_value, self.unit),
+            Quantity(self.registry, new_remainder_value, self.unit)
+        )
 
     def __rdivmod__(self, other: Quantity):
-        raise NotImplementedError
+        raise TypeError("Cannot divide by Quantity")
 
     def __pow__(self, other: Quantity):
-        raise NotImplementedError
+        raise TypeError("Cannot raise Quantity to a power")
 
     def __rpow__(self, other: Quantity):
-        raise NotImplementedError
+        raise TypeError("Cannot raise Quantity to a power")
 
     def __neg__(self):
-        raise NotImplementedError
+        new_value = -self.value
+        return Quantity(self.registry, new_value, self.unit)
 
     def __pos__(self):
-        raise NotImplementedError
+        return self
 
     def __abs__(self):
-        raise NotImplementedError
+        new_value = abs(self.value)
+        return Quantity(self.registry, new_value, self.unit)
 
     def __invert__(self):
-        raise NotImplementedError
+        raise "Cannot invert Quantity"
 
     def __int__(self):
         if self.unit.dimension is None:
             return int(self.value)
-        raise "Cannot convert quantity to int"
+        raise "Cannot convert Quantity to int"
 
     def __float__(self):
         if self.unit.dimension is None:
             return float(self.value)
-        raise "Cannot convert quantity to float"
+        raise "Cannot convert Quantity to float"
 
     def __round__(self, ndigits: int = None):
-        raise NotImplementedError
+        new_value = round(self.value, ndigits)
+        return Quantity(self.registry, new_value, self.unit)
 
-    def __trunk__(self):
-        raise NotImplementedError
+    def __trunc__(self):
+        new_value = math.trunc(self.value)
+        return Quantity(self.registry, new_value, self.unit)
 
     def __floor__(self):
-        raise NotImplementedError
+        new_value = math.floor(self.value)
+        return Quantity(self.registry, new_value, self.unit)
 
     def __ceil__(self):
-        raise NotImplementedError
+        new_value = math.ceil(self.value)
+        return Quantity(self.registry, new_value, self.unit)
