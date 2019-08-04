@@ -66,7 +66,7 @@ class Quantity:
         if isinstance(new_unit, str):
             if new_unit not in self.registry.units:
                 raise "Unrecognized unit"
-            new_unit = self.registry.units[new_unit_string]
+            new_unit = self.registry.units[new_unit]
 
         if new_unit is self.unit:
             return self
