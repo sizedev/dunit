@@ -80,3 +80,5 @@ class Registry():
             quantity += Quantity(registry=self, value=value_string, unit=unit)
 
         return quantity
+
+    __call__ = parse_quantity
