@@ -12,7 +12,7 @@ import unit
 reg = unit.Registry(load_defaults=False)
 ```
 
-You can add custom units programatically. Make the scale is provided as a string, in order to avoid rounding.
+You can add custom units programatically. Make sure the scale is provided as a string, in order to avoid rounding.
 ```
 reg.units.register(name="earth", symbol=None, dimension="mass", scale="5.9722e24", aliases=["earths"])
 reg.units.register(name="moon", symbol=None, dimension="mass", scale="7.342e22", aliases=["moons"])
