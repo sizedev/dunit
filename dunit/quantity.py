@@ -72,7 +72,7 @@ class Quantity:
 
         if new_unit.dimension != self.unit.dimension:
             raise "Cannot convert between units of different dimensions"
-        new_value = self.value * (new_unit.scale / self.unit.scale)
+        new_value = self.value * (self.unit.scale / new_unit.scale)
         return Quantity(registry=self.registry, value=new_value, unit=new_unit)
 
     # Formatting methods
