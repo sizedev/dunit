@@ -1,4 +1,3 @@
-from __future__ import annotations
 from typing import Any
 from decimal import Decimal
 import numbers
@@ -42,7 +41,7 @@ def require_dimensionless(fn):
 class Quantity:
     __slots__ = ("_registry", "_value", "_unit")
 
-    def __init__(self, registry: "Registry", value: Any, unit: Unit):
+    def __init__(self, registry, value: Any, unit: Unit):
         self._registry = registry
         self._value = Decimal(value)
         self._unit = unit
@@ -140,61 +139,61 @@ class Quantity:
     @zero_to_quantity
     @require_quantity
     @require_same_dimensions
-    def __add__(self, other: Quantity):
+    def __add__(self, other):
         new_value = self.value + other.to_unit(self.unit).value
         return Quantity(self.registry, new_value, self.unit)
 
-    def __radd__(self, other: Quantity):
+    def __radd__(self, other):
         return self.__add__(other)
 
     @zero_to_quantity
     @require_quantity
     @require_same_dimensions
-    def __sub__(self, other: Quantity):
+    def __sub__(self, other):
         new_value = self.value - other.to_unit(self.unit).value
         return Quantity(self.registry, new_value, self.unit)
 
     @zero_to_quantity
     @require_quantity
     @require_same_dimensions
-    def __rsub__(self, other: Quantity):
+    def __rsub__(self, other):
         new_value = other.to_unit(self.unit).value - self.value
         return Quantity(self.registry, new_value, self.unit)
 
     @require_dimensionless
-    def __mul__(self, other: Quantity):
+    def __mul__(self, other):
         new_value = self.value * other
         return Quantity(self.registry, new_value, self.unit)
 
-    def __rmul__(self, other: Quantity):
+    def __rmul__(self, other):
         return __mul__(self, other)
 
     @require_dimensionless
-    def __truediv__(self, other: Quantity):
+    def __truediv__(self, other):
         new_value = self.value / other
         return Quantity(self.registry, new_value, self.unit)
 
-    def __rtruediv__(self, other: Quantity):
+    def __rtruediv__(self, other):
         raise TypeError("Cannot divide by Quantity")
 
     @require_dimensionless
-    def __floordiv__(self, other: Quantity):
+    def __floordiv__(self, other):
         new_value = self.value // other
         return Quantity(self.registry, new_value, self.unit)
 
-    def __rfloordiv__(self, other: Quantity):
+    def __rfloordiv__(self, other):
         raise TypeError("Cannot divide by Quantity")
 
     @require_dimensionless
-    def __mod__(self, other: Quantity):
+    def __mod__(self, other):
         new_value = self.value % other
         return Quantity(self.registry, new_value, self.unit)
 
-    def __rmod__(self, other: Quantity):
+    def __rmod__(self, other):
         raise TypeError("Cannot divide by Quantity")
 
     @require_dimensionless
-    def __divmod__(self, other: Quantity):
+    def __divmod__(self, other):
         new_quotient_value = self.value // other
         new_remainder_value = self.value % other
         return (
@@ -202,13 +201,13 @@ class Quantity:
             Quantity(self.registry, new_remainder_value, self.unit)
         )
 
-    def __rdivmod__(self, other: Quantity):
+    def __rdivmod__(self, other):
         raise TypeError("Cannot divide by Quantity")
 
-    def __pow__(self, other: Quantity):
+    def __pow__(self, other):
         raise TypeError("Cannot raise Quantity to a power")
 
-    def __rpow__(self, other: Quantity):
+    def __rpow__(self, other):
         raise TypeError("Cannot raise Quantity to a power")
 
     def __neg__(self):

@@ -1,4 +1,3 @@
-from __future__ import annotations
 from typing import Any, Iterable
 from decimal import Decimal
 
@@ -16,7 +15,7 @@ class Unit:
         self._aliases = tuple(aliases)
 
     @classmethod
-    def from_dict(cls, u: dict) -> Unit:
+    def from_dict(cls, u: dict):
         return Unit(
             name=u["name"],
             symbol=u["symbol"],
