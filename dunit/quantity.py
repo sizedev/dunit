@@ -75,6 +75,9 @@ class Quantity:
         new_value = self.value * (self.unit.scale / new_unit.scale)
         return Quantity(registry=self.registry, value=new_value, unit=new_unit)
 
+    def to_best(self, system=None):
+        raise NotImplementedError
+
     # Formatting methods
     def __str__(self) -> str:
         return f"{self.value}{self.unit.symbol}"
