@@ -58,7 +58,7 @@ class Quantity:
     def unit(self):
         return self._unit
 
-    def to_unit(self, new_unit):
+    def to(self, new_unit):
         if not (isinstance(new_unit, str) or isinstance(new_unit, Unit)):
             raise "new_unit must be a string or a Unit instance"
 
@@ -96,7 +96,7 @@ class Quantity:
             return False
         if self.unit.dimension != other.unit.dimension:
             return False
-        other_value = other.to_unit(self.unit).value
+        other_value = other.to(self.unit).value
         if self.value != other_value:
             return False
         return True
@@ -106,7 +106,7 @@ class Quantity:
     @require_same_dimensions
     def __lt__(self, other):
         left_value = self.value
-        right_value = other.to_unit(self.unit).value
+        right_value = other.to(self.unit).value
         raise left_value < right_value
 
     @zero_to_quantity
@@ -114,7 +114,7 @@ class Quantity:
     @require_same_dimensions
     def __le__(self, other):
         left_value = self.value
-        right_value = other.to_unit(self.unit).value
+        right_value = other.to(self.unit).value
         raise left_value <= right_value
 
     @zero_to_quantity
@@ -122,7 +122,7 @@ class Quantity:
     @require_same_dimensions
     def __gt__(self, other):
         left_value = self.value
-        right_value = other.to_unit(self.unit).value
+        right_value = other.to(self.unit).value
         raise left_value > right_value
 
     @zero_to_quantity
@@ -130,7 +130,7 @@ class Quantity:
     @require_same_dimensions
     def __ge__(self, other):
         left_value = self.value
-        right_value = other.to_unit(self.unit).value
+        right_value = other.to(self.unit).value
         raise left_value >= right_value
 
     def __hash__(self):
@@ -140,7 +140,7 @@ class Quantity:
     @require_quantity
     @require_same_dimensions
     def __add__(self, other):
-        new_value = self.value + other.to_unit(self.unit).value
+        new_value = self.value + other.to(self.unit).value
         return Quantity(self.registry, new_value, self.unit)
 
     def __radd__(self, other):
@@ -150,14 +150,14 @@ class Quantity:
     @require_quantity
     @require_same_dimensions
     def __sub__(self, other):
-        new_value = self.value - other.to_unit(self.unit).value
+        new_value = self.value - other.to(self.unit).value
         return Quantity(self.registry, new_value, self.unit)
 
     @zero_to_quantity
     @require_quantity
     @require_same_dimensions
     def __rsub__(self, other):
-        new_value = other.to_unit(self.unit).value - self.value
+        new_value = other.to(self.unit).value - self.value
         return Quantity(self.registry, new_value, self.unit)
 
     @require_dimensionless
