@@ -14,16 +14,6 @@ class Unit:
         self._scale = Decimal(scale)
         self._aliases = tuple(aliases)
 
-    @classmethod
-    def from_dict(cls, u: dict):
-        return Unit(
-            name=u["name"],
-            symbol=u["symbol"],
-            dimension=u["dimension"],
-            scale=u["scale"],
-            aliases=u["aliases"]
-        )
-
     @property
     def name(self) -> str:
         return self._name
