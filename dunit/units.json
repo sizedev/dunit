@@ -1,0 +1,262 @@
+[
+  {
+    "name": "yoctometre",
+    "symbol": "ym",
+    "dimension": "length",
+    "scale": "1e-24",
+    "aliases": [
+      "yoctometer"
+    ]
+  },
+  {
+    "name": "zeptometre",
+    "symbol": "zm",
+    "dimension": "length",
+    "scale": "1e-21",
+    "aliases": [
+      "zeptometer"
+    ]
+  },
+  {
+    "name": "attometre",
+    "symbol": "am",
+    "dimension": "length",
+    "scale": "1e-18",
+    "aliases": [
+      "attometer"
+    ]
+  },
+  {
+    "name": "femtometre",
+    "symbol": "fm",
+    "dimension": "length",
+    "scale": "1e-15",
+    "aliases": [
+      "femtometer"
+    ]
+  },
+  {
+    "name": "picometre",
+    "symbol": "pm",
+    "dimension": "length",
+    "scale": "1e-12",
+    "aliases": [
+      "picometer"
+    ]
+  },
+  {
+    "name": "angstrom",
+    "symbol": "Å",
+    "dimension": "length",
+    "scale": "1e-10",
+    "aliases": [
+      "ångström"
+    ]
+  },
+  {
+    "name": "nanometre",
+    "symbol": "nm",
+    "dimension": "length",
+    "scale": "1e-9",
+    "aliases": [
+      "nanometer",
+      "millimicron"
+    ]
+  },
+  {
+    "name": "micrometre",
+    "symbol": "µm",
+    "dimension": "length",
+    "scale": "1e-6",
+    "aliases": [
+      "micrometer",
+      "micron"
+    ]
+  },
+  {
+    "name": "millimetre",
+    "symbol": "mm",
+    "dimension": "length",
+    "scale": "1e-3",
+    "aliases": [
+      "millimeter"
+    ]
+  },
+  {
+    "name": "centimetre",
+    "symbol": "cm",
+    "dimension": "length",
+    "scale": "1e-2",
+    "aliases": [
+      "centimeter"
+    ]
+  },
+  {
+    "name": "inch",
+    "symbol": "in",
+    "dimension": "length",
+    "scale": "2.54e-2",
+    "aliases": [
+      "\""
+    ]
+  },
+  {
+    "name": "decimetre",
+    "symbol": "dm",
+    "dimension": "length",
+    "scale": "1e-1",
+    "aliases": [
+      "decimeter"
+    ]
+  },
+  {
+    "name": "foot",
+    "symbol": "ft",
+    "dimension": "length",
+    "scale": "3.048e-1",
+    "aliases": [
+      "'"
+    ]
+  },
+  {
+    "name": "yard",
+    "symbol": "yd",
+    "dimension": "length",
+    "scale": "9.144e-1",
+    "aliases": []
+  },
+  {
+    "name": "metre",
+    "symbol": "m",
+    "dimension": "length",
+    "scale": "1",
+    "aliases": [
+      "meter"
+    ]
+  },
+  {
+    "name": "decametre",
+    "symbol": "dam",
+    "dimension": "length",
+    "scale": "1e1",
+    "aliases": [
+      "decameter"
+    ]
+  },
+  {
+    "name": "hectometre",
+    "symbol": "hm",
+    "dimension": "length",
+    "scale": "1e2",
+    "aliases": [
+      "hectometer"
+    ]
+  },
+  {
+    "name": "kilometre",
+    "symbol": "km",
+    "dimension": "length",
+    "scale": "1e3",
+    "aliases": [
+      "kilometer"
+    ]
+  },
+  {
+    "name": "mile",
+    "symbol": "mi",
+    "dimension": "length",
+    "scale": "1.609344e3",
+    "aliases": []
+  },
+  {
+    "name": "megametre",
+    "symbol": "Mm",
+    "dimension": "length",
+    "scale": "1e6",
+    "aliases": [
+      "megameter"
+    ]
+  },
+  {
+    "name": "gigametre",
+    "symbol": "Gm",
+    "dimension": "length",
+    "scale": "1e9",
+    "aliases": [
+      "gigameter"
+    ]
+  },
+  {
+    "name": "astronomical unit",
+    "symbol": "ua",
+    "dimension": "length",
+    "scale": "1.495978707e11",
+    "aliases": [
+      "au",
+      "AU"
+    ]
+  },
+  {
+    "name": "terametre",
+    "symbol": "Tm",
+    "dimension": "length",
+    "scale": "1e12",
+    "aliases": [
+      "terameter"
+    ]
+  },
+  {
+    "name": "petametre",
+    "symbol": "Pm",
+    "dimension": "length",
+    "scale": "1e15",
+    "aliases": [
+      "petameter"
+    ]
+  },
+  {
+    "name": "lightyear",
+    "symbol": "ly",
+    "dimension": "length",
+    "scale": "9.4607304725808e15",
+    "aliases": [
+      "l.y.",
+      "al",
+      "Lj"
+    ]
+  },
+  {
+    "name": "parsec",
+    "symbol": "pc",
+    "dimension": "length",
+    "scale": "3.0856775814913673e16",
+    "aliases": []
+  },
+  {
+    "name": "exametre",
+    "symbol": "Em",
+    "dimension": "length",
+    "scale": "1e18",
+    "aliases": [
+      "exameter"
+    ]
+  },
+  {
+    "name": "zettametre",
+    "symbol": "Zm",
+    "dimension": "length",
+    "scale": "1e21",
+    "aliases": [
+      "zettameter"
+    ]
+  },
+  {
+    "name": "yottametre",
+    "symbol": "Ym",
+    "dimension": "length",
+    "scale": "1e24",
+    "aliases": [
+      "yottameter"
+    ]
+  }
+]

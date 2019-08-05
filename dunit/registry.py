@@ -4,6 +4,8 @@ import re
 from dunit import Unit
 from dunit import Quantity
 
+import pkgutil
+
 
 class UnitRegistry():
     __slots__ = ("_units", )
@@ -25,24 +27,34 @@ class UnitRegistry():
     # add a unit to the unit registry
     def register(self, *args, **kwargs) -> Unit:
         unit = Unit(*args, **kwargs)
-        all_names = [unit, unit.name, unit.symbol] + unit.aliases
+        all_names = (unit, unit.name, unit.symbol) + unit.aliases
         for name in all_names:
             self._units[name] = unit
         return unit
+
+    def load_json(self, data) -> None:
+        for u in data:
+            self.register(**u)
 
     # load definitions from a JSON file
     def load_file(self, path) -> None:
         with open(path) as f:
             data = json.load(f)
-            for u in data:
-                self.register(Unit.from_dict(u))
+            self.load_json(data)
+
+    # load definitions from a JSON file
+    def load_defaults(self) -> None:
+        data = json.loads(pkgutil.get_data(__name__, "units.json"))
+        self.load_json(data)
 
 
 class Registry():
     __slots__ = ("_unit_registry", )
 
-    def __init__(self):
+    def __init__(self, load_defaults=True):
         self._unit_registry = UnitRegistry()
+        if load_defaults:
+            self.units.load_defaults()
 
     @property
     def units(self):
