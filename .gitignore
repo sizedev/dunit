@@ -1,4 +1,7 @@
+# Visual Studio Code IDE files
 .vscode
-*.pyc
-py_cache
 *.code-workspace
+
+# Python cached binaries
+*.pyc
+__py_cache__
