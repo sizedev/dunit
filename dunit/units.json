@@ -429,6 +429,70 @@
     ]
   },
   {
+    "name": "yoctasecond",
+    "symbol": "ys",
+    "dimension": "time",
+    "scale": "1e-24",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "zeptosecond",
+    "symbol": "zs",
+    "dimension": "time",
+    "scale": "1e-21",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "attosecond",
+    "symbol": "as",
+    "dimension": "time",
+    "scale": "1e-18",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "femtosecond",
+    "symbol": "fs",
+    "dimension": "time",
+    "scale": "1e-15",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "picosecond",
+    "symbol": "ps",
+    "dimension": "time",
+    "scale": "1e-12",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "nanosecond",
+    "symbol": "ns",
+    "dimension": "time",
+    "scale": "1e-9",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "microsecond",
+    "symbol": "µs",
+    "dimension": "time",
+    "scale": "1e-6",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "millisecond",
+    "symbol": "ms",
+    "dimension": "time",
+    "scale": "1e-3",
+    "aliases": [
+    ]
+  },
+  {
     "name": "second",
     "symbol": "s",
     "dimension": "time",
