@@ -427,5 +427,105 @@
     "scale": "1e24",
     "aliases": [
     ]
+  },
+  {
+    "name": "second",
+    "symbol": "s",
+    "dimension": "time",
+    "scale": "1e0",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "minute",
+    "symbol": "min",
+    "dimension": "time",
+    "scale": "60",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "hour",
+    "symbol": "h",
+    "dimension": "time",
+    "scale": "3600",
+    "aliases": [
+      "hr"
+    ]
+  },
+  {
+    "name": "day",
+    "symbol": "d",
+    "dimension": "time",
+    "scale": "86400",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "week",
+    "symbol": null,
+    "dimension": "time",
+    "scale": "604800",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "fortnight",
+    "symbol": null,
+    "dimension": "time",
+    "scale": "1209600",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "month",
+    "symbol": null,
+    "dimension": "time",
+    "scale": "2592000",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "quarter",
+    "symbol": null,
+    "dimension": "time",
+    "scale": "7884000",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "year",
+    "symbol": "a",
+    "dimension": "time",
+    "scale": "31536000",
+    "aliases": [
+      "y",
+      "yr"
+    ]
+  },
+  {
+    "name": "decade",
+    "symbol": null,
+    "dimension": "time",
+    "scale": "315360000",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "century",
+    "symbol": null,
+    "dimension": "time",
+    "scale": "3153600000",
+    "aliases": [
+      "c"
+    ]
+  },
+  {
+    "name": "millennium",
+    "symbol": null,
+    "dimension": "time",
+    "scale": "31536000000",
+    "aliases": [
+    ]
   }
 ]
