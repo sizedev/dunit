@@ -25,7 +25,7 @@ def require_quantity(fn):
 def require_same_dimensions(fn):
     def wrapper(self, other):
         if self.unit.dimension != other.unit.dimension:
-            raise TypeError("Incompatible dimenions")
+            raise TypeError("Incompatible dimensions")
         return fn(self, other)
     return wrapper
 
@@ -169,7 +169,7 @@ class Quantity:
         return Quantity(self.registry, new_value, self.unit)
 
     def __rmul__(self, other):
-        return __mul__(self, other)
+        return self.__mul__(self, other)
 
     @require_dimensionless
     def __truediv__(self, other):

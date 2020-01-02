@@ -129,7 +129,7 @@
     "name": "metre",
     "symbol": "m",
     "dimension": "length",
-    "scale": "1",
+    "scale": "1e0",
     "aliases": [
       "meter"
     ]
@@ -257,6 +257,175 @@
     "scale": "1e24",
     "aliases": [
       "yottameter"
+    ]
+  },
+  {
+    "name": "yoctogram",
+    "symbol": "yg",
+    "dimension": "mass",
+    "scale": "1e-24",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "zeptogram",
+    "symbol": "zg",
+    "dimension": "mass",
+    "scale": "1e-21",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "attogram",
+    "symbol": "ag",
+    "dimension": "mass",
+    "scale": "1e-18",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "femtogram",
+    "symbol": "fg",
+    "dimension": "mass",
+    "scale": "1e-15",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "picogram",
+    "symbol": "pg",
+    "dimension": "mass",
+    "scale": "1e-12",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "nanogram",
+    "symbol": "ng",
+    "dimension": "mass",
+    "scale": "1e-9",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "microgram",
+    "symbol": "µg",
+    "dimension": "mass",
+    "scale": "1e-6",
+    "aliases": [
+      "mcg"
+    ]
+  },
+  {
+    "name": "milligram",
+    "symbol": "mg",
+    "dimension": "mass",
+    "scale": "1e-3",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "centigram",
+    "symbol": "cg",
+    "dimension": "mass",
+    "scale": "1e-2",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "decigram",
+    "symbol": "dg",
+    "dimension": "mass",
+    "scale": "1e-1",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "gram",
+    "symbol": "g",
+    "dimension": "mass",
+    "scale": "1e0",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "decagram",
+    "symbol": "dag",
+    "dimension": "mass",
+    "scale": "1e1",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "hectogram",
+    "symbol": "hg",
+    "dimension": "mass",
+    "scale": "1e2",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "kilogram",
+    "symbol": "kg",
+    "dimension": "mass",
+    "scale": "1e3",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "megagram",
+    "symbol": "Mg",
+    "dimension": "mass",
+    "scale": "1e6",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "gigigram",
+    "symbol": "Gg",
+    "dimension": "mass",
+    "scale": "1e9",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "teragram",
+    "symbol": "Tg",
+    "dimension": "mass",
+    "scale": "1e12",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "petagram",
+    "symbol": "Pg",
+    "dimension": "mass",
+    "scale": "1e15",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "exagram",
+    "symbol": "Eg",
+    "dimension": "mass",
+    "scale": "1e18",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "zettagram",
+    "symbol": "Zg",
+    "dimension": "mass",
+    "scale": "1e21",
+    "aliases": [
+    ]
+  },
+  {
+    "name": "yottagram",
+    "symbol": "Yg",
+    "dimension": "mass",
+    "scale": "1e24",
+    "aliases": [
     ]
   }
 ]
